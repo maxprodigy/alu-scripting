@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""Query for the reddit api and to parse the title of all hot articles
-"""
-
+""" 3-count.py """
 import json
 import requests
 
 
 def count_words(subreddit, word_list, after="", count=[]):
-    """Function to count words
-    """
+    """ prints a sorted count of given keywords """
 
     if after == "":
         count = [0] * len(word_list)
@@ -17,7 +14,7 @@ def count_words(subreddit, word_list, after="", count=[]):
     request = requests.get(url,
                            params={'after': after},
                            allow_redirects=False,
-                           headers={'user-agent': 'bhalut'})
+                           headers={'User-Agent': 'Mozilla/5.0'})
 
     if request.status_code == 200:
         data = request.json()
